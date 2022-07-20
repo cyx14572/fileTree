@@ -126,7 +126,7 @@ function outputTree(tree, floor = 1, str = '', isLast = false, blank = '') {
   for (let i = 0; i < tree.length; i++) {
     if (floor === 1 && i === 0) {
       fileTree += '\n' + '┌─' + str + tree[i].name;
-    } else if ((isLast || floor === 1) && i === tree.length - 1 && !tree[i].children) {
+    } else if (i === tree.length - 1 && !tree[i].children) {
       fileTree += '\n' + blank + '└─ ' + str + tree[i].name + ' ' + tree[i].commit;
     } else {
       fileTree += '\n' + blank + '├─ ' + str + tree[i].name + ' ' + tree[i].commit;
@@ -158,7 +158,6 @@ function writeTree(filePath, content) {
 /**目录树 */
 let dirTree = [];
 dirTree = deepReddir('./src', dirTree);
-console.log(JSON.stringify(dirTree));
 outputTree(dirTree);
 writeTree(generatePath, fileTree + '\n ```');
 console.log('生成结束');
