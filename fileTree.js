@@ -116,28 +116,24 @@ let fileTree = '```bash\n';
 
 /**
  * 输出目录树
- * @param {*} tree
- * @param {*} floor
- * @param {*} str
- * @param {*} adder
+ * @param {*} tree 树数据
+ * @param {*} floor 深度
  * @param {*} isLast
  */
-function outputTree(tree, floor = 1, str = '', isLast = false, blank = '') {
+function outputTree(tree, floor = 1, blank = '') {
   for (let i = 0; i < tree.length; i++) {
     if (floor === 1 && i === 0) {
-      fileTree += '\n' + '┌─' + str + tree[i].name;
+      fileTree += '\n' + '┌─' + tree[i].name;
     } else if (i === tree.length - 1 && !tree[i].children) {
-      fileTree += '\n' + blank + '└─ ' + str + tree[i].name + ' ' + tree[i].commit;
+      fileTree += '\n' + blank + '└─ ' + tree[i].name + ' ' + tree[i].commit;
     } else {
-      fileTree += '\n' + blank + '├─ ' + str + tree[i].name + ' ' + tree[i].commit;
+      fileTree += '\n' + blank + '├─ ' + tree[i].name + ' ' + tree[i].commit;
     }
 
     if (tree[i].children)
       outputTree(
         tree[i].children,
         floor + 1,
-        str,
-        (isLast || floor === 1) && i === tree.length - 1,
         blank + '| ',
       );
   }
