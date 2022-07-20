@@ -1,5 +1,5 @@
 {
-  "name": "file-tree-annotation",
+  "name": "grace-file-tree",
   "version": "1.0.1",
   "description": "生成带注释的文件树",
   "main": "fileTree.js",
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cyx14572/fileTree.git"
+  },
+  "bin": {
+    "output tree": "bin/fileTree.js"
   },
   "keywords": [
     "file",
