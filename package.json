@@ -1,0 +1,24 @@
+{
+  "name": "filetree",
+  "version": "1.0.0",
+  "description": "生成带注释的文件树",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyx14572/fileTree.git"
+  },
+  "keywords": [
+    "file",
+    "fileTree",
+    "tree"
+  ],
+  "author": "lzcyx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyx14572/fileTree/issues"
+  },
+  "homepage": "https://github.com/cyx14572/fileTree#readme"
+}
