@@ -28,7 +28,7 @@
 ### 使用方法
 查看使用帮助
 ```
-node fileTree.js -h
+output tree
 ```
 执行脚本
 ```
