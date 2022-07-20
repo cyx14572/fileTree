@@ -1,6 +1,6 @@
 {
   "name": "file-tree-annotation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "生成带注释的文件树",
   "main": "fileTree.js",
   "scripts": {
