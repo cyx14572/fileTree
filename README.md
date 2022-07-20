@@ -28,11 +28,11 @@
 ### 使用方法
 查看使用帮助
 ```
-node fileTree.js -h
+output tree -h
 ```
 执行脚本
 ```
-node fileTree.js [参数1] [参数2] [参数3] [参数4]
+output tree [参数1] [参数2] [参数3] [参数4]
 ```
 
 ### 参数说明
