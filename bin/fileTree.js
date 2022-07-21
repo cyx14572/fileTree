@@ -12,20 +12,25 @@ let include = ['pages', 'components'];
 let fileType = ['ts', 'js', 'jsx', 'tsx'];
 /**读取的注释类型 */
 let annotationType = ['component', 'util'];
+/**是否输出一个带注释的文件树*/
+let isNormal = false
 
 //获取入参
 let args = process.argv.slice(2);
 if (args[0] && (args[0] === '-h' || args[0] === '-help')) {
-  console.log('node fileTree.js [参数1] [参数2] [参数3] [参数4]');
+  console.log('执行output tree -n [参数1] [参数2] [参数3]输出一个不带注释的文件树');
+  console.log('执行node fileTree.js [参数1] [参数2] [参数3] [参数4]输出带注释的文件树');
   console.log('参数说明');
   console.log("参数1：解析目录路径,默认为'./src'");
   console.log("参数2：生成文件路径,使用','隔开,支持正则表达式,默认为'pages', 'components'");
   console.log("参数3：生成文件路径,默认为'./fileTree.md'");
   console.log("参数4：要读取的注释类型使用','隔开,默认为'component', 'util'");
-
   console.log("参数按顺序读取,不能省略,使用默认值需要输入' '占位,如下:");
   console.log("node getFileTree.js [参数1] ' ' [参数3] [参数4]");
   process.exit();
+} else if (args[0] && (args[0] === '-n')) {
+  isNormal = true
+  args.shift()
 }
 
 if (args[0] && args[0] !== ' ') {
@@ -97,14 +102,22 @@ const deepReddir = (dirPath, dirTree, floor = 1) => {
         dirTree.push(dir);
       }
     } else {
-      dir.commit = getFileAnnotation(fullPath);
-      if (dir.commit) {
+      //是否生成一个正常的文件树
+      if (isNormal) {
         dirTree.push(dir);
         dir.isFile = true;
         dir.floor = floor;
       } else {
-        isDiscard = true;
+        dir.commit = getFileAnnotation(fullPath);
+        if (dir.commit) {
+          dirTree.push(dir);
+          dir.isFile = true;
+          dir.floor = floor;
+        } else {
+          isDiscard = true;
+        }
       }
+
     }
   });
 
