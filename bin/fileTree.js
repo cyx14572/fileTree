@@ -16,7 +16,7 @@ let annotationType = ['component', 'util'];
 let isNormal = false
 
 //获取入参
-let args = process.argv.slice(2);
+let args = process.argv.slice(3);
 if (args[0] && (args[0] === '-h' || args[0] === '-help')) {
   console.log('执行output tree -n [参数1] [参数2] [参数3]输出一个不带注释的文件树');
   console.log('执行node fileTree.js [参数1] [参数2] [参数3] [参数4]输出带注释的文件树');
