@@ -104,17 +104,17 @@ const deepReddir = (dirPath, dirTree, floor = 1) => {
     } else {
       //是否生成一个正常的文件树
       if (isNormal) {
-        dirTree.push(dir);
         dir.isFile = true;
         dir.floor = floor;
+        dirTree.push(dir);
+      
       } else {
         dir.commit = getFileAnnotation(fullPath);
         if (dir.commit) {
-          dirTree.push(dir);
           dir.isFile = true;
           dir.floor = floor;
-        } else {
-          isDiscard = true;
+          dirTree.push(dir);
+         
         }
       }
 
